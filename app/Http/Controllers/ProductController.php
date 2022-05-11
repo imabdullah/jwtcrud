@@ -5,17 +5,20 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
-use JWTAuth;
-use Tymon\JWTAuth\Exceptions\JWTException;
+
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Validator;
+
+use Vimeo\Laravel\Facades\Vimeo;
+use Vimeo\Laravel\VimeoManager;
+
 class ProductController extends Controller
 {
     protected $user;
  
     public function __construct()
     {
-        $this->user = JWTAuth::parseToken()->authenticate();
+        //$this->user = JWTAuth::parseToken()->authenticate();
     }
 
     /**
@@ -36,9 +39,17 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function create()
     {
-        //
+
+
+
+        //return Vimeo::request('/me/videos', ['per_page' => 10], 'GET');
+
+        Vimeo::upload(base_path().'/public/sample.3gp');
+
     }
 
     /**

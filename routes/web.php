@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +23,12 @@ Route::get('/home', function () {
     return view('home');
 })->name('home');
 
+
+
+Route::get('/playlist', function () {
+    return view('playlist');
+})->name('playlist');
+
+
+
+Route::get('/product', [ProductController::class, 'create']);
